@@ -8,10 +8,10 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.MAIL_ADDRESS,
     pass: process.env.MAIL_PASSWORD,
-  }
+  },
 });
 
-export const handler = async function(event, context) {
+export const handler = async function (event, context) {
   try {
     const { name, email, message } = JSON.parse(event.body);
 
@@ -19,12 +19,12 @@ export const handler = async function(event, context) {
       return {
         statusCode: 400,
         body: JSON.stringify({
-          message: 'Please provide all the details'
+          message: 'Please provide all the details',
         }),
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      };
     }
 
     if (event.httpMethod !== 'POST') {
@@ -35,14 +35,14 @@ export const handler = async function(event, context) {
         }),
         headers: {
           'Content-Type': 'application/json',
-          'Allow': 'POST'
+          Allow: 'POST',
         },
-      }
+      };
     }
 
     const mailOptions = {
-      from: 'arunbohra12@gmail.com',
-      to: 'arunbohra12@gmail.com',
+      from: 'praveen.mehra65@gmail.com',
+      to: 'praveen.mehra65@gmail.com',
       subject: 'Message from portfolio site',
       html: `
         <p>Someone sent you a message</p>
@@ -55,7 +55,7 @@ export const handler = async function(event, context) {
       `,
     };
 
-    let response = { message: 'success', };
+    let response = { message: 'success' };
     let statusCode = 200;
 
     // The following transporter sends the mail
@@ -63,16 +63,16 @@ export const handler = async function(event, context) {
     console.log(mailInfo);
 
     // If mail was successfully selt
-    if(!mailInfo?.response.includes('OK')) {
-   	  statusCode = 400;
+    if (!mailInfo?.response.includes('OK')) {
+      statusCode = 400;
       response = {
-  	  	message: 'Sorry, something went wrong! Please try again.',
-  	  };
+        message: 'Sorry, something went wrong! Please try again.',
+      };
     } else {
       statusCode = 200;
       response = {
-	  	  message: 'Successfully sent the message!',
-	    };
+        message: 'Successfully sent the message!',
+      };
     }
 
     return {
@@ -81,14 +81,14 @@ export const handler = async function(event, context) {
       headers: {
         'Content-Type': 'application/json',
       },
-    }
-  } catch(err) {
+    };
+  } catch (err) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: err.message }),
       headers: {
         'Content-Type': 'application/json',
       },
-    }
+    };
   }
-}
+};
