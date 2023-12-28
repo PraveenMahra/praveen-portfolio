@@ -1,4 +1,4 @@
-# 🤖 Arun Bohra Portfolio
+# 🤖 Praveen Mahra Portfolio
 
 Website showcasing my skills
 
@@ -15,13 +15,13 @@ To run Robofriends on your local machine run the following commands
 - Clone the project
 
 ```bash
-  git clone git@github.com:ArunBohra12/arunbohra.git
+  git clone git@github.com:PraveenMahra/praveenmahra.git
 ```
 
 - Navigate into the project root
 
 ```bash
-  cd arunbohra
+  cd praveenmahra
 ```
 
 - Install the dependencies
@@ -54,7 +54,7 @@ If you find any bugs in the projects not listed in the issues panel. Then feel f
 
 ## 🤖 Feedback
 
-If you have any feedback, please reach out to me at arunbohra12@gmail.com
+If you have any feedback, please reach out to me at praveen.mehra65@gmail.com
 
 ## 📝 License
 
